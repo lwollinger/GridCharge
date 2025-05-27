@@ -2,9 +2,9 @@
      width="30%"
      style="padding: 10px">
 
-# << Título do projeto >>
+# << GridCharge >>
 
-## << Descrição breve do domínio do problema >>
+## <<  >>
 
 > Repositório destinado para o desenvolvimento do projeto final da discipliana PRG22107 - Programação orienta a objeto. 
 > 
