@@ -12,6 +12,7 @@ public:
     PilotState getState() override;
 
 private:
+    // Here I know that the ADC of ATMEL328P is 10 bits, but I have used only uint16_t which holds the entire content of the 10bit value.
     uint16_t readADC(); // função auxiliar
 };
 
