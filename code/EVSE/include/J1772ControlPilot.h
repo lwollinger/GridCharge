@@ -1,5 +1,5 @@
-#ifndef J1772_CONTROL_PILOT
-#define J1772_CONTROL_PILOT
+#ifndef J1772_CONTROL_PILOT_H
+#define J1772_CONTROL_PILOT_H
 
 #include <avr/io.h>
 #include "J1772.h"

@@ -1,5 +1,5 @@
-#ifndef ATMEGA328_FAST_PWM
-#define ATMEGA328_FAST_PWM
+#ifndef ATMEGA328_FAST_PWM_H
+#define ATMEGA328_FAST_PWM_H
 
 #include <avr/io.h>
 #include "State.h"
