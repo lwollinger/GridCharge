@@ -2,7 +2,7 @@
 #define PILOT_STATE_H
 
 /*
-    just here we gonna use just A,B,C,F.
+    just here we gonna use just A,B,C/D,F.
 */
 
 enum class PilotState {

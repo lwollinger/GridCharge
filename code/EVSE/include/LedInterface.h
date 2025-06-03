@@ -23,11 +23,7 @@ private:
     uint8_t _ledBluePin;
 
 public:
-    LedInterface(uint8_t rLed, uint8_t gLed, uint8_t bLed){
-        this->_ledRedPin = rLed;
-        this->_ledGreenPin = gLed;
-        this->_ledBluePin = bLed;
-    } // botar isso na .cpp
+    LedInterface(uint8_t rLed, uint8_t gLed, uint8_t bLed);
 
     void setStatus(EVSE::State mode) override;
     // override garante que eu sobreescrevo quando for usar o metodo.

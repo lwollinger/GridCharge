@@ -9,7 +9,6 @@ class EVSE {
 private:
     bool _relayState;
     
-
 public:
     EVSE();
     int run();
