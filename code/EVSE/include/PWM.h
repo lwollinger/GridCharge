@@ -2,11 +2,12 @@
 #define PWM_H
 
 #include <avr/io.h>
-#include "PilotState.h"
+//#include "PilotState.h"
+#include "J1772ControlPilot.h"
 
 class PWM {
 public:
-    virtual void setControlPilotPWM(PilotState mode) = 0;
+    virtual void setControlPilotPWM(J1772ControlPilot::PilotState mode) = 0;
 };
 
 #endif // PWM

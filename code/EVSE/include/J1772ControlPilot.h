@@ -3,8 +3,6 @@
 
 #include <avr/io.h>
 #include "J1772.h"
-#include "PilotState.h"
-#include "PWM.h"
 
 
 class J1772ControlPilot {
@@ -16,6 +14,14 @@ public:
     J1772ControlPilot(uint8_t maxCurrentConnectorSupport);
     void queryState();
     
+    enum class PilotState {
+    A, // Nothing connected
+    B, // Connected but not charging
+    C, // Charging
+    D, // Ventilation required
+    E, // Error
+    };
+
 };
 
 #endif // J1772_CONTROL_PILOT

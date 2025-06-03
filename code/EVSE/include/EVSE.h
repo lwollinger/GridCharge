@@ -13,6 +13,14 @@ private:
 public:
     EVSE();
     int run();
+    
+    enum class State {
+    OFF,
+    CONNECTED,
+    CHARGING,
+    ERROR
+};
+   
 };
 
 #endif // EVSE_H

@@ -2,7 +2,6 @@
 #define ATMEGA328_FAST_PWM_H
 
 #include <avr/io.h>
-#include "State.h"
 #include "PWM.h"
 
 

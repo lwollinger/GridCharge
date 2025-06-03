@@ -29,7 +29,7 @@ public:
         this->_ledBluePin = bLed;
     } // botar isso na .cpp
 
-    void setStatus(State mode) override;
+    void setStatus(EVSE::State mode) override;
     // override garante que eu sobreescrevo quando for usar o metodo.
     void ledStatus();
 };
