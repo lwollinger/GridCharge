@@ -15,15 +15,19 @@
     }
 */
 
+#define RED PORTC0
+#define BLUE PORTC2
+#define GREEN PORTC3
+
 class LedInterface : public StatusInterface {
 private:
     
-    uint8_t _ledRedPin;
-    uint8_t _ledGreenPin;
-    uint8_t _ledBluePin;
+    uint8_t _ledRedPin = RED;
+    uint8_t _ledGreenPin = GREEN;
+    uint8_t _ledBluePin = BLUE;
 
 public:
-    LedInterface(uint8_t rLed, uint8_t gLed, uint8_t bLed);
+    LedInterface();
 
     void setStatus(EVSE::State mode) override;
     // override garante que eu sobreescrevo quando for usar o metodo.
