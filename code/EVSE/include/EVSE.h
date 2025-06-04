@@ -18,7 +18,7 @@ public:
     void SetRelayOff();
     
     enum class State {
-    OFF,
+    NOTCONNECTED,
     CONNECTED,
     CHARGING,
     ERROR

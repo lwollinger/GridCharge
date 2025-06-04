@@ -21,17 +21,13 @@
 
 class LedInterface : public StatusInterface {
 private:
-    
     uint8_t _ledRedPin = RED;
     uint8_t _ledGreenPin = GREEN;
     uint8_t _ledBluePin = BLUE;
-
 public:
     LedInterface();
-
     void setStatus(EVSE::State mode) override;
     // override garante que eu sobreescrevo quando for usar o metodo.
-    void ledStatus();
 };
 
 #endif // LED_INTERFACE_H
