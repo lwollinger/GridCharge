@@ -10,15 +10,25 @@
     The 
 */
 
+#define GFCI PORTD2
+#define Phase1 PORTD3
+#define Phase2 PORTD4
+
 class SecurityAlert {
 private:
-    uint8_t _gpio_pin;
-    const char* _alert;
+    uint8_t _GFCI = GFCI;
+    uint8_t _Phase1 = Phase1;
+    uint8_t _Phase2 = Phase2;
 
 public:
-    SecurityAlert(uint8_t GPIO, const char* alert_name);
-    
-    bool IsFaltSecurity();
+
+
+// ver isso com o professor!!!!!!!!!!!!!!!!!!!!!!!! tirei o const e tirei o _gpio
+
+
+    //SecurityAlert(uint8_t GPIO, const char* alert_name);
+    SecurityAlert();
+    bool IsFaultSecurity();
 
 };
 

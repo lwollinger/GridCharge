@@ -15,9 +15,9 @@
     }
 */
 
-#define RED PORTC0
-#define BLUE PORTC2
-#define GREEN PORTC3
+#define RED PORTC0 // PC0
+#define BLUE PORTC2 // PC2
+#define GREEN PORTC3 // PC3
 
 class LedInterface : public StatusInterface {
 private:
