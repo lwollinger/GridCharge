@@ -14,20 +14,36 @@
     yellow -> error.
     }
 */
+/*
+class LedRGB {
+    private:
+        uint8_t _ledRedPin;
+        uint8_t _ledGreenPin;
+        uint8_t _ledBluePin;
+        volatile uint8_t * _port; 
 
-#define RED PORTC0 // PC0
-#define BLUE PORTC2 // PC2
-#define GREEN PORTC3 // PC3
+    public:
+        LedRGB(uint8_t port, uint8_t rPin, uint8_t gPin, uint8_t bPin){
+            this->_port = (uint8_t*)port;
+            this->_ledRedPin = rPin;
+            this->_ledGreenPin = gPin;
+            this->_ledBluePin = bPin;
+        }
+        void setColor(bool red, bool green, bool blue){
+            
+        }
+};*/
 
 class LedInterface : public StatusInterface {
 private:
-    uint8_t _ledRedPin = RED;
-    uint8_t _ledGreenPin = GREEN;
-    uint8_t _ledBluePin = BLUE;
+    const uint8_t _ledRedPin = PORTC0;
+    const uint8_t _ledGreenPin = PORTC2;
+    const uint8_t _ledBluePin = PORTC3;
 public:
     LedInterface();
     void setStatus(EVSE::State mode) override;
     // override garante que eu sobreescrevo quando for usar o metodo.
+
 };
 
 #endif // LED_INTERFACE_H

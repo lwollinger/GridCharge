@@ -2,7 +2,6 @@
 #define EVSE_H
 
 #include <avr/io.h>
-#include "State.h"
 #include "SecurityAlert.h"  
 
 #define RELAY PORTB0 
@@ -18,11 +17,11 @@ public:
     void SetRelayOff();
     
     enum class State {
-    NOTCONNECTED,
-    CONNECTED,
-    CHARGING,
-    ERROR
-};
+        NOTCONNECTED,
+        CONNECTED,
+        CHARGING,
+        ERROR
+    };
    
 };
 
