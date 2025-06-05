@@ -21,9 +21,9 @@ A operação do carregamento envolve diferentes estágios que precisam ser ident
 
 - Identificar a conexão com o veículo elétrico por meio do sinal de controle "*Proximity Pilot* (PP)".
 
--  Indicar o estado atual do carregamento com LEDs (ex: LED verde para pronto, azul para carregando, vermelho para erro).
+-  Indicar o estado atual do carregamento com LEDs (ex: Vermelho -> Desconectado, Azul -> Conectado, Verde -> Carregando, Amarelo -> Erro).
 
--  Monitorar e reagir a falhas de conexão ou sobrecargas, se necessário.
+-  Monitorar e reagir a falhas de conexão, fuga de corrente e falta de terra.
 
 **Requisitos Não Funcionais (RNF)**
 
@@ -31,7 +31,7 @@ A operação do carregamento envolve diferentes estágios que precisam ser ident
 
 ## Diagrama de Casos de Uso
 
-Apresentar o diagram de casos de uso, identificando as funcionalidades do sistema assim como os atores envolvidos
+![Diagrama Caso de Uso](img/diagrama_caso_de_uso.png)
  
 ## Diagrama de Domínio do problema
 
