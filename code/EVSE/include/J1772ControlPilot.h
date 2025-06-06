@@ -6,14 +6,9 @@
 
 
 class J1772ControlPilot {
-private:
-    PilotState _actualState;
-    uint8_t _maxCurrentConnector; 
-
 public:
     J1772ControlPilot(uint8_t maxCurrentConnectorSupport);
     void queryState();
-    
     enum class PilotState {
     A, // Nothing connected
     B, // Connected but not charging
@@ -22,6 +17,9 @@ public:
     E, // Error
     };
 
+private:
+    PilotState _actualState;
+    //uint8_t _maxCurrentConnector; 
 };
 
 #endif // J1772_CONTROL_PILOT

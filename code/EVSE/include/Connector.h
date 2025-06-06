@@ -7,7 +7,6 @@
 
 class Connector {
 public:
-    virtual void setStatus(State mode) = 0;
     virtual bool isConnected() = 0;
     virtual State getState() = 0;
 };
