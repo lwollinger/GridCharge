@@ -4,11 +4,11 @@
 #include <avr/io.h>
 #include "SecurityAlert.h"  
 
-#define RELAY PORTB0 
 
 class EVSE {
 private:
     bool _relayState;
+    const uint8_t _relay = PORTB0;
     
 public:
     EVSE();

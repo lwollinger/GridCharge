@@ -2,20 +2,21 @@
 #define J1772_CONTROL_PILOT_H
 
 #include <avr/io.h>
-#include "J1772.h"
 
 
 class J1772ControlPilot {
 public:
-    J1772ControlPilot(uint8_t maxCurrentConnectorSupport);
-    void queryState();
+    J1772ControlPilot();
     enum class PilotState {
     A, // Nothing connected
     B, // Connected but not charging
     C, // Charging
     D, // Ventilation required
-    E, // Error
+    E, // No Power
+    F, // Error
     };
+
+    PilotState queryState(); // querystate returns a pilotState
 
 private:
     PilotState _actualState;

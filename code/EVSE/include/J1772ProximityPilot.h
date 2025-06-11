@@ -2,7 +2,6 @@
 #define J1772_PROXIMITY_PILOT_H
 
 #include <avr/io.h>
-#include "J1772.h"
 #include "ADC.h"
 
 
@@ -14,7 +13,6 @@ private:
 public:
     J1772ProximityPilot();
     bool IsConnectedPP();
-    void setConnectedPP(bool IsConnected);
 };
 
 #endif // J1772_PROXIMITY_PILOT

@@ -23,8 +23,7 @@
 
 class _ADC_ {
 public:
-    virtual float getVoltagePP() = 0;   
-    virtual J1772ControlPilot::PilotState getState() = 0; // this metode, returns the pilot state that's running.
+    virtual float getVoltagePP() = 0;
 };
 
 #endif // ADC_H
