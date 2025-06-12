@@ -5,22 +5,24 @@
 
 
 class J1772ControlPilot {
-public:
-    J1772ControlPilot();
-    enum class PilotState {
-    A, // Nothing connected
-    B, // Connected but not charging
-    C, // Charging
-    D, // Ventilation required
-    E, // No Power
-    F, // Error
-    };
-
-    PilotState queryState(); // querystate returns a pilotState
-
-private:
-    PilotState _actualState;
-    //uint8_t _maxCurrentConnector; 
+    enum class PilotState;
+    
+    
+    private:
+        PilotState _actualState;
+        uint8_t _maxCurrentConnector; 
+    
+    public:
+        J1772ControlPilot();
+        enum class PilotState {
+            A, // Nothing connected
+            B, // Connected but not charging
+            C, // Charging
+            D, // Ventilation required
+            E, // No Power
+            F, // Error
+        };
+        PilotState queryState(); // querystate returns a pilotState
 };
 
 #endif // J1772_CONTROL_PILOT

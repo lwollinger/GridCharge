@@ -7,7 +7,6 @@
 #include "J1772ProximityPilot.h"
 #include "J1772ControlPilot.h"
 
-
 class J1772 : public Connector {
 private:
     uint8_t _maxCurrentConnector;
@@ -15,7 +14,7 @@ private:
     J1772ProximityPilot _proximity_pilot;
     
 public:
-    J1772(); 
+    J1772(uint8_t max_Current); 
     State getState() override;
     bool isConnected() override {  // inline method
         return _proximity_pilot.IsConnectedPP();

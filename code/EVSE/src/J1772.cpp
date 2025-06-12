@@ -1,11 +1,9 @@
 #include "J1772.h"
 
 // entender melhor isso, fiquei na duvida de varias coisas, o motivo de eu ter que definir tudo isso na j1772.
-J1772::J1772() :
-    _maxCurrentConnector(30),          // ajuda pro professor aqui, nao quero passar a corrente AQUI30A
-    _control_pilot(_maxCurrentConnector),
-    _proximity_pilot()
-{}
+J1772::J1772(uint8_t max_Current) {
+    this->_maxCurrentConnector = max_Current;
+}
 
 // This methode, is gonna get the PilotState and convert to the EVSE state generic.
 State J1772::getState(){
@@ -25,5 +23,4 @@ State J1772::getState(){
     default:
         return State::ERROR;
     }
-
 }
