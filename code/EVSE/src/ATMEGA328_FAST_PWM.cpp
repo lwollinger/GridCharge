@@ -1,20 +1,32 @@
 #include "ATMEGA328_FAST_PWM.h"
 
 /* This part is for generate the PWM, that's gonna tell the car, what's the capability of how much current the car can drain.
-___________________________________________
-| PWM   | SAE Continuous | SAE Short Term |
-|-------|----------------|----------------|
-| 50%   | 30 A           | 36 A peak      |
-| 40%   | 24 A           | 30 A peak      |
-| 30%   | 18 A           | 22 A peak      |
-| 25%   | 15 A           | 20 A peak      |
-| 16%   | 9.6 A          |                |
-| 10%   | 6 A            |                |
+ *
+ *
+ * SAE J1772 PWM Duty Cycle vs. Available Current
+ * ----------------------------------------------
+ *  This table defines the relation between the PWM duty cycle 
+ *  sent by the EVSE and the maximum current (in amperes) that 
+ *  the vehicle is allowed to draw.
+ * 
+ *  +--------+-------------+--------+-------------+
+ *  | Amps   | Duty Cycle  | Amps   | Duty Cycle  |
+ *  +--------+-------------+--------+-------------+
+ *  |  6 A   |    10%      | 40 A   |    66%      |
+ *  | 12 A   |    20%      | 48 A   |    80%      |
+ *  | 18 A   |    30%      | 65 A   |    90%      |
+ *  | 24 A   |    40%      | 75 A   |    94%      |
+ *  | 30 A   |    50%      | 80 A   |    96%      |
+ *  +--------+-------------+--------+-------------+
+ * 
+ *  Notes:
+ *  - Between 6 A and 51 A:    A = DutyCycle% × 0.6
+ *  - Between 51 A and 80 A:   A = (DutyCycle% - 64) × 2.5
+ * 
 
                                     *OBSERVARTION*
 _____________________________________________________________________________________________
-Here I'm using 50% duty, because my connector and my EVSE was made to support this current!!!
-
+Here I'm using 50% duty = 30A, because my connector and my EVSE was made to support this current!!!
 
 */
 
@@ -28,8 +40,28 @@ void ATMEGA328FAST_PWM::generatePWM(){
     TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11); // Fast PWM, Prescaler = 8
 
     ICR1 = 19999;   // TOP periode 1 kHz
-    OCR1B = _inicialDuty;   // Duty cycle 0% (OCR1B / ICR1)
+    OCR1B = _inicialDuty;   // Duty cycle 0%.
 }
+
+void ATMEGA328FAST_PWM::setCurrentLimit(uint16_t amps){
+    // Out of the limits
+    if (amps < 6 || amps > 80){
+        OCR1B = 0; // Fora da faixa, desliga PWM
+    }
+
+    float duty = 0;
+
+    if (amps <= 51){
+        duty = amps / 0.6f; // 6A to 51A
+    } else{
+        duty = ((amps - 64.0f) / 2.5f); // Above 51A
+    }
+
+    // Convert duty % for the number of the timer variable OCR1B -> (OCR1B / ICR1)
+    OCR1B = (uint16_t)((duty / 100.0f) * ICR1);
+}
+
+
 
 void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state) {
     switch (state) {
@@ -40,7 +72,7 @@ void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state) {
             OCR1B = ICR1; // 100% duty
             break;
         case J1772ControlPilot::PilotState::C:
-            OCR1B = 9999; // 50% duty
+            setCurrentLimit(30); // 50% duty
             break;
         case J1772ControlPilot::PilotState::D:
             OCR1B = 9999; // 50% duty
@@ -58,11 +90,3 @@ void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state) {
 }
 
 
-  uint8_t variable;
-  if ((amps >= 6) && (amps <= 51)) {
-    // amps = (duty cycle %) X 0.6
-    variable = amps * (TOP/60);
-  } else if ((amps > 51) && (amps <= 80)) {
-    // amps = (duty cycle % - 64) X 2.5
-    variable = (amps * (TOP/250)) + (64*(TOP/100));
-  }

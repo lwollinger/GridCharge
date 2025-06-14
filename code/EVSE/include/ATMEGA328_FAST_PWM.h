@@ -19,14 +19,13 @@ ___________________________________________
 
 class ATMEGA328FAST_PWM : public PWM {
 private:
-    const uint8_t _PWM = PORTB2;
-    const uint8_t _inicialDuty = 0;
+    const uint16_t _PWM = PORTB2;   // PWM atmega328P 16 bits.
+    const uint16_t _inicialDuty = 0;
 public:
     ATMEGA328FAST_PWM();
     void generatePWM();
     void changeDUTY(J1772ControlPilot::PilotState state);
-    //void setPWM();
-    //void set
+    void setCurrentLimit(uint16_t amps);
 };
 
 #endif // ATMEGA328_FAST_PWM
