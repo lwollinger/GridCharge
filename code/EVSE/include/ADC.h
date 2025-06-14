@@ -24,6 +24,7 @@
 class _ADC_ {
 public:
     virtual float getVoltagePP() = 0;
+    virtual float getVoltageCP() = 0;
 };
 
 #endif // ADC_H
