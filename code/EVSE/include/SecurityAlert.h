@@ -22,10 +22,6 @@ private:
 
 public:
 
-
-// ver isso com o professor!!!!!!!!!!!!!!!!!!!!!!!! tirei o const e tirei o _gpio
-
-
     //SecurityAlert(uint8_t GPIO, const char* alert_name);
     SecurityAlert();
     bool IsFaultSecurity();

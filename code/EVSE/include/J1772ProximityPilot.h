@@ -7,8 +7,8 @@
 
 class J1772ProximityPilot {
 private:
-    bool _connectedPP;
-    float _voltagePP;
+   // bool _connectedPP;
+   // float _voltagePP;
 
 public:
     J1772ProximityPilot();
