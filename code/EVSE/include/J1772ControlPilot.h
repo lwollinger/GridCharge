@@ -10,7 +10,6 @@ class J1772ControlPilot {
     
     private:
         PilotState _actualState;
-        uint8_t _maxCurrentConnector; 
     
     public:
         J1772ControlPilot();

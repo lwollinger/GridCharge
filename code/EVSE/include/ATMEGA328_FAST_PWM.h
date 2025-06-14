@@ -5,15 +5,16 @@
 #include "PWM.h"
 
 /* This part is for generate the PWM, that's gonna tell the car, what's the capability of how much current the car can drain.
-___________________________________________
-| PWM   | SAE Continuous | SAE Short Term |
-|-------|----------------|----------------|
-| 50%   | 30 A           | 36 A peak      |
-| 40%   | 24 A           | 30 A peak      |
-| 30%   | 18 A           | 22 A peak      |
-| 25%   | 15 A           | 20 A peak      |
-| 16%   | 9.6 A          |                |
-| 10%   | 6 A            |                |
+
+ *  +--------+-------------+--------+-------------+
+ *  | Amps   | Duty Cycle  | Amps   | Duty Cycle  |
+ *  +--------+-------------+--------+-------------+
+ *  |  6 A   |    10%      | 40 A   |    66%      |
+ *  | 12 A   |    20%      | 48 A   |    80%      |
+ *  | 18 A   |    30%      | 65 A   |    90%      |
+ *  | 24 A   |    40%      | 75 A   |    94%      |
+ *  | 30 A   |    50%      | 80 A   |    96%      |
+ *  +--------+-------------+--------+-------------+
 
 */
 

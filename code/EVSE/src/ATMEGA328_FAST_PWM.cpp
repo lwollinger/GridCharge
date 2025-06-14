@@ -69,19 +69,19 @@ void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state) {
             OCR1B = ICR1; // 100% duty
             break;
         case J1772ControlPilot::PilotState::B:
-            OCR1B = ICR1; // 100% duty
+            OCR1B = ICR1; 
             break;
         case J1772ControlPilot::PilotState::C:
-            setCurrentLimit(30); // 50% duty
+            setCurrentLimit(30); // 30A -> 50% duty
             break;
         case J1772ControlPilot::PilotState::D:
-            OCR1B = 9999; // 50% duty
+            setCurrentLimit(30);
             break;
         case J1772ControlPilot::PilotState::E:
-            OCR1B = ICR1; // 100% duty
+            OCR1B = ICR1;
             break;
         case J1772ControlPilot::PilotState::F:
-            OCR1B = ICR1; // 100% duty
+            OCR1B = ICR1;
             break;
         default:
             OCR1B = 0; // Desliga PWM em outros casos, ou escolha outro valor
