@@ -9,12 +9,15 @@
 
 class J1772 : public Connector {
 private:
-    uint8_t _maxCurrentConnector;
+    uint8_t _maxCurrentConnector = 30;
     J1772ControlPilot _control_pilot;
     J1772ProximityPilot _proximity_pilot;
     
 public:
-    J1772(uint8_t max_Current); 
+    J1772();
+    uint8_t getConnectorCurrentLimit(){
+        return _maxCurrentConnector;
+    }
     State getState() override;
     bool isConnected() override {  // inline method
         return _proximity_pilot.IsConnectedPP();

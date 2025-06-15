@@ -1,9 +1,9 @@
 #include "J1772.h"
+#include "J1772ControlPilot.h"
 
-// entender melhor isso, fiquei na duvida de varias coisas, o motivo de eu ter que definir tudo isso na j1772.
-J1772::J1772(uint8_t max_Current) {
-    this->_maxCurrentConnector = max_Current;
-}
+//J1772::J1772(uint8_t maxCurrentConnector){
+//    this->_maxCurrentConnector = maxCurrentConnector;
+//}
 
 // This methode, is gonna get the PilotState and convert to the EVSE state generic.
 State J1772::getState(){

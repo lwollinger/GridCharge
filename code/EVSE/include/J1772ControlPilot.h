@@ -4,12 +4,7 @@
 #include <avr/io.h>
 
 
-class J1772ControlPilot {
-    enum class PilotState;
-    
-    
-    private:
-        PilotState _actualState;
+class J1772ControlPilot { 
     
     public:
         J1772ControlPilot();
@@ -22,6 +17,9 @@ class J1772ControlPilot {
             F, // Error
         };
         PilotState queryState(); // querystate returns a pilotState
+        
+    private:
+        PilotState _actualState;
 };
 
 #endif // J1772_CONTROL_PILOT

@@ -1,4 +1,6 @@
 #include "ATMEGA328_FAST_PWM.h"
+#include "J1772.h"
+#include "EVSE.h"
 
 /* This part is for generate the PWM, that's gonna tell the car, what's the capability of how much current the car can drain.
  *
@@ -43,10 +45,30 @@ void ATMEGA328FAST_PWM::generatePWM(){
     OCR1B = _inicialDuty;   // Duty cycle 0%.
 }
 
-void ATMEGA328FAST_PWM::setCurrentLimit(uint16_t amps){
-    // Out of the limits
+uint16_t ATMEGA328FAST_PWM::getCurrentLimit(){
+
+    // getCurrentLimit is gonna return the lowest number of current of the system to make the PWM (i think this is not the best way)
+
+    EVSE evse;
+    J1772 j1772;
+    uint16_t evseAMP = evse.getEvseCurrentLimit();
+    uint16_t connectorAMP = j1772.getConnectorCurrentLimit();
+
+    if(evseAMP > connectorAMP){
+        return connectorAMP;
+    } else{
+        return evseAMP;
+    }
+}
+
+
+uint16_t ATMEGA328FAST_PWM::setPWM(){
+    uint16_t amps = getCurrentLimit();
+
+    // Calculate the limit of PWM by amps value
+    
     if (amps < 6 || amps > 80){
-        OCR1B = 0; // Fora da faixa, desliga PWM
+        OCR1B = 0; // out of range, set pwm off
     }
 
     float duty = 0;
@@ -58,12 +80,14 @@ void ATMEGA328FAST_PWM::setCurrentLimit(uint16_t amps){
     }
 
     // Convert duty % for the number of the timer variable OCR1B -> (OCR1B / ICR1)
-    OCR1B = (uint16_t)((duty / 100.0f) * ICR1);
+    return OCR1B = (uint16_t)((duty / 100.0f) * ICR1);
 }
 
 
 
-void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state) {
+void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state){
+
+
     switch (state) {
         case J1772ControlPilot::PilotState::A:
             OCR1B = ICR1; // 100% duty
@@ -72,10 +96,10 @@ void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state) {
             OCR1B = ICR1; 
             break;
         case J1772ControlPilot::PilotState::C:
-            setCurrentLimit(30); // 30A -> 50% duty
+            setPWM(); // 30A -> 50% duty
             break;
         case J1772ControlPilot::PilotState::D:
-            setCurrentLimit(30);
+            setPWM();
             break;
         case J1772ControlPilot::PilotState::E:
             OCR1B = ICR1;

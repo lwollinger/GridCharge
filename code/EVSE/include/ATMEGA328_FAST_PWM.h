@@ -26,7 +26,8 @@ public:
     ATMEGA328FAST_PWM();
     void generatePWM();
     void changeDUTY(J1772ControlPilot::PilotState state);
-    void setCurrentLimit(uint16_t amps);
+    uint16_t getCurrentLimit();
+    uint16_t setPWM();
 };
 
 #endif // ATMEGA328_FAST_PWM
