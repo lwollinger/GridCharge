@@ -1,12 +1,12 @@
-#ifndef ATMEG328P_ADC_H
-#define ATMEG328P_ADC_H
+#ifndef ATMEGA328P_ADC_H
+#define ATMEGA328P_ADC_H
 
 #include "ADC.h"
 #include <avr/io.h>
 
-class ATMEG328P_ADC : public _ADC_ {
+class ATMEGA328P_ADC : public _ADC_ {
 public:
-    ATMEG328P_ADC();
+    ATMEGA328P_ADC();
     float getVoltagePP() override;
     float getVoltageCP() override;
 

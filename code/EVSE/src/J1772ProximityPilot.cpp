@@ -1,5 +1,5 @@
 #include "J1772ProximityPilot.h"
-#include "ATMEG328P_ADC.h"
+#include "ATMEGA328P_ADC.h"
 
 /*
 Connector voltage
@@ -11,23 +11,10 @@ Connector voltage
 | Desconected |    0 V    |
 +-------------------------+
 */
-/*
-ATMEG328P_ADC adc; // instância global (entender melhor isso)
-
-bool J1772ProximityPilot::IsConnectedPP() {
-    float voltage = adc.getVoltagePP();
-
-    if (voltage > 2.5f) {
-        return true; // Cabo conectado corretamente
-    } else {
-        return false; // Desconectado ou erro
-    }
-}
-*/
 
 
 J1772ProximityPilot::J1772ProximityPilot(_ADC_* adcInstance) {
-    adc = adcInstance;
+    this->adc = adcInstance;
 }
 
 bool J1772ProximityPilot::IsConnectedPP() {

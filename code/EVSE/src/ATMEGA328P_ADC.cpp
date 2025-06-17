@@ -1,4 +1,4 @@
-#include "ATMEG328P_ADC.h"
+#include "ATMEGA328P_ADC.h"
 /*
 Config ADC
 +--------------------------------------------------------+
@@ -36,14 +36,14 @@ With 16MHz on, we will use the prescaler, so that the sampled signal has precisi
 
 */
 
-ATMEG328P_ADC::ATMEG328P_ADC(){
+ATMEGA328P_ADC::ATMEGA328P_ADC(){
 
     // ADC and config prescaler / 128 -> ADC clock = 125kHz
     ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 
 }
 
-uint16_t ATMEG328P_ADC::readADC(){
+uint16_t ATMEGA328P_ADC::readADC(){
     // Start conversion
     ADCSRA |= (1 << ADSC);
 
@@ -55,7 +55,7 @@ uint16_t ATMEG328P_ADC::readADC(){
 }
 
 
-float ATMEG328P_ADC::getVoltageCP(){
+float ATMEGA328P_ADC::getVoltageCP(){
 
     // Configuration of ADC1 Control Pilot
     ADMUX = (1 << REFS0) | (1 << MUX0); // 0001 -> ADC1
@@ -69,7 +69,7 @@ float ATMEG328P_ADC::getVoltageCP(){
     return voltage;
 }
 
-float ATMEG328P_ADC::getVoltagePP(){
+float ATMEGA328P_ADC::getVoltagePP(){
 
     // Configuration of ADC4 Proximity Pilot
     ADMUX = (1 << REFS0) | (1 << MUX2); // 0100 -> ADC4

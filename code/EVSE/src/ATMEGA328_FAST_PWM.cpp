@@ -1,6 +1,7 @@
 #include "ATMEGA328_FAST_PWM.h"
 #include "J1772.h"
 #include "EVSE.h"
+#include "ATMEGA328P_ADC.h"
 
 /* This part is for generate the PWM, that's gonna tell the car, what's the capability of how much current the car can drain.
  *
@@ -40,18 +41,20 @@ void ATMEGA328FAST_PWM::generatePWM(){
     // Config Timer1 for Fast PWM, mode 14
     TCCR1A = (1 << COM1B1) | (1 << WGM11); // Clear OC1B on Compare Match
     TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11); // Fast PWM, Prescaler = 8
-
-    ICR1 = 19999;   // TOP periode 1 kHz
+    ICR1 = 1999;   // TOP periode 1 kHz
     OCR1B = _inicialDuty;   // Duty cycle 0%.
 }
 
-uint16_t ATMEGA328FAST_PWM::getCurrentLimit(){
+uint16_t ATMEGA328FAST_PWM::getCurrentLimit(){ // função dando problema
 
     // getCurrentLimit is gonna return the lowest number of current of the system to make the PWM (i think this is not the best way)
 
     EVSE evse;
-    J1772 j1772;
+    //J1772 j1772(); // """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""--> erro aqui"""""""""""""""""""""""""""
     uint16_t evseAMP = evse.getEvseCurrentLimit();
+    
+    ATMEGA328P_ADC adc;
+    J1772 j1772(&adc); 
     uint16_t connectorAMP = j1772.getConnectorCurrentLimit();
 
     if(evseAMP > connectorAMP){
@@ -85,7 +88,7 @@ uint16_t ATMEGA328FAST_PWM::setPWM(){
 
 
 
-void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state){
+void ATMEGA328FAST_PWM::setControlPilotPWM(J1772ControlPilot::PilotState state){
 
 
     switch (state) {
@@ -93,7 +96,8 @@ void ATMEGA328FAST_PWM::changeDUTY(J1772ControlPilot::PilotState state){
             OCR1B = ICR1; // 100% duty
             break;
         case J1772ControlPilot::PilotState::B:
-            OCR1B = ICR1; 
+            //OCR1B = ICR1; 
+            OCR1B = ICR1;
             break;
         case J1772ControlPilot::PilotState::C:
             setPWM(); // 30A -> 50% duty

@@ -5,6 +5,10 @@
 //    this->_maxCurrentConnector = maxCurrentConnector;
 //}
 
+J1772::J1772(_ADC_* adc)
+    : _proximity_pilot(adc) // passa o ponteiro pro construtor
+{}
+
 // This methode, is gonna get the PilotState and convert to the EVSE state generic.
 State J1772::getState(){
     switch (_control_pilot.queryState()) {

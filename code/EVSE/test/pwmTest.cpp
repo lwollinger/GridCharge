@@ -25,7 +25,7 @@ int main() {
     // Pode repetir ou parar aqui
     while (1){
         
-        pwm.setControlPilotPWM(control.queryState());
+        pwm.setControlPilotPWM(J1772ControlPilot::PilotState::C);
 
     }
 

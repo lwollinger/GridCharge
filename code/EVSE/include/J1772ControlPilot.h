@@ -20,6 +20,7 @@ class J1772ControlPilot {
         
     private:
         PilotState _actualState;
+        ATMEGA328P_ADC _adc; // Nao to entendendo, eu to instanciando ele e nao sei oq ta acontecendo............!!!!!!!!!
 };
 
 #endif // J1772_CONTROL_PILOT
