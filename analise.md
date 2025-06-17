@@ -35,7 +35,7 @@ A operação do carregamento envolve diferentes estágios que precisam ser ident
  
 ## Diagrama de Domínio do problema
 
-Elaborar um diagrama conceitual do domínio do problema.
+![Diagrama Caso de Uso](img/diagrama_classe.png)
 
 
 <div align="center">
