@@ -2,9 +2,14 @@
 
 ## Descrição Geral do domínio do problema
 
-O domínio do problema está centrado no controle de um sistema de carregamento de veículos elétricos (EV), especificamente utilizando um carregador AC Tipo 1. Esse tipo de carregador segue padrões como o SAE J1772, amplamente utilizado em veículos elétricos para carregamento em corrente alternada. O projeto visa desenvolver um sistema embarcado que automatize o processo de carregamento garantindo segurança, eficiência e conformidade com os estados definidos pelo protocolo.
+O domínio deste projeto está centrado no controle de um sistema de carregamento para veículos elétricos (EV), especificamente utilizando um carregador AC do Tipo 1. Este tipo de carregador segue o padrão SAE J1772, amplamente adotado na indústria automotiva para o carregamento em corrente alternada.
 
-A operação do carregamento envolve diferentes estágios que precisam ser identificados e controlados corretamente, para assim evitar possíveis falhas. Para isso, o sistema deverá interagir com o circuito de controle do carregador, sensores e atuadores (como relés, LEDs, GFCI, etc), e ser capaz de interpretar corretamente o estado de carga e conexão com o veículo, garantindo a segurança veicular e do próprio sistema.
+O objetivo do projeto é desenvolver um sistema embarcado que automatize o processo de carregamento, assegurando conformidade com os estados definidos pelo protocolo, além de garantir segurança e eficiência operacional.
+
+Um dos principais diferenciais da proposta é a adoção de uma abordagem orientada a objetos desde o início do desenvolvimento. A arquitetura do software será projetada de forma genérica e robusta, de modo a facilitar a extensibilidade do sistema. Isso significa que, futuramente, a adição de novos componentes — como displays LCD, conectores adicionais, ou novos mecanismos de segurança — poderá ser feita de forma modular, sem a necessidade de alterações significativas na estrutura do código existente.
+
+Essa flexibilidade é viabilizada por um dos principais paradigmas da programação orientada a objetos: o uso de herança e polimorfismo. Ao estruturar o sistema com classes base bem definidas e interfaces claras, novos módulos poderão ser integrados ao sistema com o mínimo de acoplamento, promovendo reutilização de código e manutenção facilitada.
+
 
 **Requisitos Funcionais (RF)**
 -  Controlar os estados de operação do carregador conforme o protocolo do Tipo 1 (ex: Desconectado, Conectado, Carregando, Erro), a partir do conector "*Control Pilot* (CP)".
@@ -27,8 +32,13 @@ A operação do carregamento envolve diferentes estágios que precisam ser ident
  
 ## Diagrama de Domínio do problema
 
-![Diagrama Caso de Uso](img/diagrama_classe.png)
+![Diagrama Classe](img/diagrama_classe.png)
 
+## Máquina de Estados
+
+Funcionamento base do sistema de carregamento para o conector J1772.
+
+![Diagrama Caso de Uso](img/maquina_estados.png)
 
 <div align="center">
 
