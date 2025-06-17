@@ -24,16 +24,15 @@ Abra o arquivo `platformio.ini` no seu projeto e insira a seguinte configuraçã
 platform = atmelavr
 board = ATmega328P
 
-board_build.f_cpu = 1000000UL
-
+board_build.f_cpu = 16000000UL
 upload_protocol = custom
 upload_flags = 
-    -pm328p
-    -Pusb
-    -B4
-    -cusbasp
+        -pm328p
+        -Pusb
+        -B4
+        -cusbasp
 
-upload_command = "C:\\Users\\SeuDiretório\\avrdude-6.4-mingw32\\avrdude.exe" $UPLOAD_FLAGS -U flash:w:$SOURCE:i
+upload_command = "C:\Users\lucas\Downloads\Sistema\avrdude-6.4-mingw32\avrdude.exe" $UPLOAD_FLAGS -U flash:w:$SOURCE:i
 ```
 
 ## 3️⃣ Compilar e fazer o upload
