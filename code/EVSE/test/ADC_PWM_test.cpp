@@ -25,7 +25,12 @@ int main() {
     // Pode repetir ou parar aqui
     while (1){
         
+        //pwm.setControlPilotPWM(J1772ControlPilot::PilotState::C);
+        if(proximity.IsConnectedPP()){
+           pwm.setControlPilotPWM(control.queryState()); 
+        }
         
+
     }
 
     return 0;

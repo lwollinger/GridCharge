@@ -1,7 +1,6 @@
 #ifndef ADC_H
 #define ADC_H
 
-#include "J1772ControlPilot.h"
 
 /*
     The ADC.h is the definition about 2 things.

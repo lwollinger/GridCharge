@@ -50,7 +50,6 @@ uint16_t ATMEGA328FAST_PWM::getCurrentLimit(){ // função dando problema
     // getCurrentLimit is gonna return the lowest number of current of the system to make the PWM (i think this is not the best way)
 
     EVSE evse;
-    //J1772 j1772(); // """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""--> erro aqui"""""""""""""""""""""""""""
     uint16_t evseAMP = evse.getEvseCurrentLimit();
     
     ATMEGA328P_ADC adc;
@@ -100,7 +99,7 @@ void ATMEGA328FAST_PWM::setControlPilotPWM(J1772ControlPilot::PilotState state){
             OCR1B = ICR1;
             break;
         case J1772ControlPilot::PilotState::C:
-            setPWM(); // 30A -> 50% duty
+            setPWM();
             break;
         case J1772ControlPilot::PilotState::D:
             setPWM();

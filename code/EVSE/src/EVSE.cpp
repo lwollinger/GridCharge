@@ -1,8 +1,6 @@
 #include "EVSE.h"
 
 
-// Init relayStatus
-
 EVSE::EVSE(){
     // Defining the PORTB0 = RelayControl |
     DDRB |= (1 << _relay);  // Set PB0 to Output
@@ -21,7 +19,6 @@ void EVSE::SetRelayOff() {
 }
 
 int EVSE::run(){
-
 
     return 0;
 }

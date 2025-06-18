@@ -2,6 +2,7 @@
 #define J1772_CONTROL_PILOT_H
 
 #include <avr/io.h>
+#include "ATMEGA328P_ADC.h"
 
 
 class J1772ControlPilot { 
@@ -20,7 +21,7 @@ class J1772ControlPilot {
         
     private:
         PilotState _actualState;
-        ATMEGA328P_ADC _adc; // Nao to entendendo, eu to instanciando ele e nao sei oq ta acontecendo............!!!!!!!!!
+        ATMEGA328P_ADC _adc; // Instance to inicializate the ADC at querystate.
 };
 
 #endif // J1772_CONTROL_PILOT
