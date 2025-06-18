@@ -18,7 +18,7 @@ public:
     uint8_t getConnectorCurrentLimit(){
         return _maxCurrentConnector;
     }
-    State getState() override;
+    EVSE::State getState() override;
     bool isConnected() override {  // inline method
         return _proximity_pilot.IsConnectedPP();
     }

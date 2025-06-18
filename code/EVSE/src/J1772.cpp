@@ -1,26 +1,27 @@
 #include "J1772.h"
 #include "J1772ControlPilot.h"
+#include "EVSE.h"
 
 J1772::J1772(_ADC_* adc)
     : _proximity_pilot(adc) // passa o ponteiro pro construtor
 {}
 
 // This methode, is gonna get the PilotState and convert to the EVSE state generic.
-State J1772::getState(){
+EVSE::State J1772::getState(){
     switch (_control_pilot.queryState()) {
     case J1772ControlPilot::PilotState::A:
-        return State::OFF;
+        return EVSE::State::NOTCONNECTED;
     case J1772ControlPilot::PilotState::B:
-        return State::CONNECTED;
+        return EVSE::State::CONNECTED;
     case J1772ControlPilot::PilotState::C:
-        return State::CHARGING;
+        return EVSE::State::CHARGING;
     case J1772ControlPilot::PilotState::D:
-        return State::CHARGING;
+        return EVSE::State::CHARGING;
     case J1772ControlPilot::PilotState::E:
-        return State::ERROR;
+        return EVSE::State::ERROR;
     case J1772ControlPilot::PilotState::F:
-        return State::ERROR;
+        return EVSE::State::ERROR;
     default:
-        return State::ERROR;
+        return EVSE::State::ERROR;
     }
 }
