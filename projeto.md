@@ -33,6 +33,6 @@ Assim, o pino PP no padrão IEC 62196 permite que o carregamento ocorra de forma
 
 <div align="center">
 
-[Retroceder](analise.md) | [Avançar](implementacao.md)
+[⬅️ Retroceder](analise.md) | [Avançar ➡️](implementacao.md)
 
 </div>

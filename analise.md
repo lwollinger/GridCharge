@@ -42,6 +42,6 @@ Funcionamento base do sistema de carregamento para o conector J1772.
 
 <div align="center">
 
-[Retroceder](README.md) | [Avançar](projeto.md)
+[⬅️ Retroceder](README.md) | [Avançar ➡️](projeto.md)
 
 </div>

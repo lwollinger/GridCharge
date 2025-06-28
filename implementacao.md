@@ -1,12 +1,34 @@
-# Implementação
+# 🚀 Implementação
 
->[!NOTE] 
- Relatar o processo de implementação do problemas, incluindo as
- ferramentas e bibliotecas utilizadas
->
+> **Nota**  
+> Relatar o processo de implementação do problema, incluindo as ferramentas e bibliotecas utilizadas.
+
+A implementação do projeto foi realizada utilizando ferramentas de desenvolvimento embarcado e de desenho eletrônico. O processo envolveu tanto a parte de software (firmware) quanto a de hardware (placa do carregador).
+
+## 🛠️ Ferramentas Utilizadas
+
+- **Altium Designer** – Projeto da placa de circuito impresso (PCB);
+- **Proteus 8.16** – Simulação de circuitos;
+- **Atmel Studio** – Desenvolvimento do firmware em C para ATmega328P;
+- **Git/GitHub** – Controle de versão do projeto;
+- **VS Code + PlatformIO** – Alternativa usada em testes locais;
+- **Multímetro e Fonte AC** – Testes em bancada.
+
+---
+
+## 🖼️ Visual da Placa no Altium
+
+<div align="center">
+  <img src="img/layout_pci.png" alt="Imagem da placa desenvolvida no Altium" width="600"/>
+  <img src="img/layout_pci_3d.png" alt="Imagem da placa desenvolvida no Altium" width="600"/>
+  <br>
+  <em>Figura: Layout da PCB desenvolvida no Altium Designer</em>
+</div>
+
+---
 
 <div align="center">
 
-[Retroceder](projeto.md) | [Início](analise.md)
+[⬅️ Retroceder](projeto.md) | [🏠 Início](analise.md)
 
 </div>
