@@ -35,6 +35,7 @@ Here I'm using 50% duty = 30A, because my connector and my EVSE was made to supp
 
 ATMEGA328FAST_PWM::ATMEGA328FAST_PWM(){
     DDRB |= (1 << PORTB2); // PORTB2 -> output
+    generatePWM();
 }
 
 void ATMEGA328FAST_PWM::generatePWM(){

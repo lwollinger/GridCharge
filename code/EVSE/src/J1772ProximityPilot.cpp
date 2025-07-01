@@ -20,7 +20,7 @@ J1772ProximityPilot::J1772ProximityPilot(_ADC_* adcInstance) {
 }
 
 bool J1772ProximityPilot::IsConnectedPP(){
-    float voltage = adc->getVoltagePP();
+    float voltage = adc->read(MUX2);
 
     if (voltage > 2.5f) {
         return true; // Cabo conectado corretamente

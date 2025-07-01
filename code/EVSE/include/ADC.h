@@ -19,11 +19,11 @@
 
 
 */
+#include <avr/io.h>
 
 class _ADC_ {
 public:
-    virtual float getVoltagePP() = 0;
-    virtual float getVoltageCP() = 0;
+    virtual float read(uint8_t pin) = 0;
 };
 
 #endif // ADC_H

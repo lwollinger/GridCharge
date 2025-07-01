@@ -36,14 +36,17 @@ With 16MHz on, we will use the prescaler, so that the sampled signal has precisi
 
 */
 
-ATMEGA328P_ADC::ATMEGA328P_ADC(){
-
+ATMEGA328P_ADC::ATMEGA328P_ADC(float v, float s){
+    voltage = v;
+    scale = s;
     // ADC and config prescaler / 128 -> ADC clock = 125kHz
     ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 
 }
 
-uint16_t ATMEGA328P_ADC::readADC(){
+float ATMEGA328P_ADC::read(uint8_t pin){
+    ADMUX = (1 << REFS0) | (1 << pin); // 0001 -> ADC1
+
     // Start conversion
     ADCSRA |= (1 << ADSC);
 
@@ -51,34 +54,6 @@ uint16_t ATMEGA328P_ADC::readADC(){
     while (ADCSRA & (1 << ADSC));
 
     // return the 10 bits ADC value
-    return ADC;
+    return (ADC * voltage) / scale;
 }
 
-
-float ATMEGA328P_ADC::getVoltageCP(){
-
-    // Configuration of ADC1 Control Pilot
-    ADMUX = (1 << REFS0) | (1 << MUX0); // 0001 -> ADC1
-
-    // Get the ADC value
-    uint16_t adcValue = readADC();
-
-    // conversion the voltage (AVcc = 5V e resolução de 10 bits = 1024)
-    float voltage = (adcValue * 5.0f) / 1023.0f;
-    
-    return voltage;
-}
-
-float ATMEGA328P_ADC::getVoltagePP(){
-
-    // Configuration of ADC4 Proximity Pilot
-    ADMUX = (1 << REFS0) | (1 << MUX2); // 0100 -> ADC4
-
-     // Get the ADC value
-    uint16_t adcValue = readADC();
-
-    // conversion the voltage (AVcc = 5V e resolução de 10 bits = 1024)
-    float voltage = (adcValue * 5.0f) / 1023.0f;
-    
-    return voltage;
-}

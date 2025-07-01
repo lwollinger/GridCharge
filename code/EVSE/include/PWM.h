@@ -7,6 +7,8 @@
 
 class PWM {
 public:
+
+    void setDutyCycle();
     virtual void setControlPilotPWM(J1772ControlPilot::PilotState mode) = 0;
 };
 

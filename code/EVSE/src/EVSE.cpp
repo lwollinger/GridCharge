@@ -18,8 +18,24 @@ void EVSE::SetRelayOff() {
     _relayState = false;
 }
 
-int EVSE::run(){
+int EVSE::run() {
+    while (1) {
+        EVSE::State state = _connector->getState();
+        _statusIface->setStatus(state);
 
+        switch (state) {
+            case EVSE::State::CHARGING:
+                evse.SetRelayOn();
+                break;
+
+            case EVSE::State::NOTCONNECTED:
+            case EVSE::State::CONNECTED:
+            case EVSE::State::ERROR:
+            default:
+                evse.SetRelayOff();
+                break;
+        }
+    }
     return 0;
 }
 

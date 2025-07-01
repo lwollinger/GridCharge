@@ -8,7 +8,7 @@
 class J1772ControlPilot { 
     
     public:
-        J1772ControlPilot();
+        J1772ControlPilot(_ADC_ *adc);
         enum class PilotState {
             A, // Nothing connected
             B, // Connected but not charging
@@ -21,7 +21,7 @@ class J1772ControlPilot {
         
     private:
         PilotState _actualState;
-        ATMEGA328P_ADC _adc; // Instance to inicializate the ADC at querystate.
+        _ADC_ * _adc; // Instance to inicializate the ADC at querystate.
 };
 
 #endif // J1772_CONTROL_PILOT

@@ -2,6 +2,8 @@
 #define EVSE_H
 
 #include <avr/io.h>
+#include "Connector.h"
+#include "StatusInterface.h"
 
 
 class EVSE {
@@ -10,6 +12,9 @@ private:
     const uint8_t _evseCurrentLimit = 30; 
     bool _relayState;
     const uint8_t _relay = PORTB0;
+
+    Connector * _connector;
+    StatusInterface * _statusIface;
     
 public:
     EVSE();
@@ -19,6 +24,8 @@ public:
     uint8_t getEvseCurrentLimit() const{
         return _evseCurrentLimit;
     }
+    void setConnector(Connector* conn) { _connector = conn; }
+    void setInterface(StatusIntercace* iface) { _statusIface = iface; }
 
     enum class State {
         NOTCONNECTED,

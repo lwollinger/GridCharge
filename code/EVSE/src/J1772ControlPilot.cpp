@@ -11,12 +11,13 @@ Schematic:
          -12V     ----->       0,89V
 */
 
-J1772ControlPilot::J1772ControlPilot() {
+J1772ControlPilot::J1772ControlPilot(_ADC_ *adc) {
+    _adc = adc;
     _actualState = PilotState::A;
 }
 
 J1772ControlPilot::PilotState J1772ControlPilot::queryState(){
-    float voltage = _adc.getVoltageCP();
+    float voltage = _adc->read(MUX0);
 
     if(voltage > 4.3){
         _actualState = PilotState::A;

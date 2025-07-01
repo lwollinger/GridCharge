@@ -3,7 +3,7 @@
 #include "EVSE.h"
 
 J1772::J1772(_ADC_* adc)
-    : _proximity_pilot(adc) // passa o ponteiro pro construtor
+    : _control_pilot(adc), _proximity_pilot(adc) // passa o ponteiro pro construtor
 {}
 
 // This methode, is gonna get the PilotState and convert to the EVSE state generic.

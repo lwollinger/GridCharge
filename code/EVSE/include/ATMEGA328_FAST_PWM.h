@@ -24,9 +24,9 @@ private:
     const uint16_t _inicialDuty = 0;
     uint16_t getCurrentLimit();
     uint16_t setPWM();
+    void generatePWM();
 public:
     ATMEGA328FAST_PWM();
-    void generatePWM();
     //uint16_t getCurrentLimit();
     //uint16_t setPWM();
     virtual void setControlPilotPWM(J1772ControlPilot::PilotState state) override;
