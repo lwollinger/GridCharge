@@ -38,30 +38,33 @@ ATMEGA328FAST_PWM::ATMEGA328FAST_PWM(){
     generatePWM();
 }
 
-void ATMEGA328FAST_PWM::generatePWM(){
+void ATMEGA328FAST_PWM::generatePWM() {
+    // Config Timer1 for Fast PWM, mode 14
+    TCCR1A = (1 << COM1B1) | (1 << WGM11); // Clear OC1B on Compare Match
+    TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11); // Fast PWM, Prescaler = 8
+    setFrequency(1000);
+    setDutyCycle(0);  // Duty cycle 0%.
+}
+
+void ATMEGA328FAST_PWM::setFrequency(uint16_t frequency) {
+    ICR1 = 1999;   // TOP periode 1 kHz
+}
+
+void ATMEGA328FAST_PWM::setDutyCycle(float percent) {
+    OCR1B = (uint16_t)((percent / 100.0f) * ICR1);
+}
+
+void ATMEGA328FAST_PWM::stopPWM() { 
+    setDutyCycle(0);
+}
+
+/*
+void ATMEGA328FAST_PWM::generatePWM(uint8_t port, uint16_t frequency, float dutyPercent){
     // Config Timer1 for Fast PWM, mode 14
     TCCR1A = (1 << COM1B1) | (1 << WGM11); // Clear OC1B on Compare Match
     TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11); // Fast PWM, Prescaler = 8
     ICR1 = 1999;   // TOP periode 1 kHz
     OCR1B = _inicialDuty;   // Duty cycle 0%.
-}
-
-uint16_t ATMEGA328FAST_PWM::getCurrentLimit(){ // função dando problema
-
-    // getCurrentLimit is gonna return the lowest number of current of the system to make the PWM (i think this is not the best way)
-
-    EVSE evse;
-    uint16_t evseAMP = evse.getEvseCurrentLimit();
-    
-    ATMEGA328P_ADC adc;
-    J1772 j1772(&adc); 
-    uint16_t connectorAMP = j1772.getConnectorCurrentLimit();
-
-    if(evseAMP > connectorAMP){
-        return connectorAMP;
-    } else{
-        return evseAMP;
-    }
 }
 
 
@@ -90,7 +93,6 @@ uint16_t ATMEGA328FAST_PWM::setPWM(){
 
 void ATMEGA328FAST_PWM::setControlPilotPWM(J1772ControlPilot::PilotState state){
 
-
     switch (state) {
         case J1772ControlPilot::PilotState::A:
             OCR1B = ICR1; // 100% duty
@@ -116,5 +118,5 @@ void ATMEGA328FAST_PWM::setControlPilotPWM(J1772ControlPilot::PilotState state){
             break;
     }
 }
-
+*/
 

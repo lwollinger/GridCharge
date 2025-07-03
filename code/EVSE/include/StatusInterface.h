@@ -1,7 +1,6 @@
 #ifndef STATUS_INTERFACE_H
 #define STATUS_INTERFACE_H
 
-#include "EVSE.h"
 
 /*
     Pure Abstract interface class defines a setStatus() function ensure that any derived class (such as LedInterface) 

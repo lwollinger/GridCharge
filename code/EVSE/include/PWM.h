@@ -3,13 +3,14 @@
 
 #include <avr/io.h>
 //#include "PilotState.h"
-#include "J1772ControlPilot.h"
+//#include "J1772ControlPilot.h"
 
 class PWM {
 public:
-
-    void setDutyCycle();
-    virtual void setControlPilotPWM(J1772ControlPilot::PilotState mode) = 0;
+    virtual void generatePWM() = 0;
+    virtual void setFrequency(uint16_t frequency) = 0;
+    virtual void setDutyCycle(float percent) = 0;
+    virtual void stopPWM() = 0;
 };
 
 #endif // PWM

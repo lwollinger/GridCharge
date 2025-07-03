@@ -2,8 +2,7 @@
 #define CONNECTOR_H
 
 #include <avr/io.h>
-//#include "State.h"
-#include "EVSE.h"
+
 
 /*
     Connector.h is a generic interface class that every connector has
