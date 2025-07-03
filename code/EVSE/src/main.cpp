@@ -10,13 +10,11 @@
 int main()
 {
     LedInterface led;
-    ATMEGA328P_ADC adc;
-    J1772 connector(&adc);
+    ATMEGA328P_ADC adc(5.0, 1024);
+    ATMEGA328FAST_PWM pwm;
+    J1772 connector(&adc, &pwm, 30);
 
-    //ATMEGA328FAST_PWM pwm;
-    //pwm.generatePWM();
-
-    EVSE system();
+    EVSE system;
     system.setInterface(&led);
     system.setConnector(&connector);
     system.run();

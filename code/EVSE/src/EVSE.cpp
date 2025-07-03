@@ -1,5 +1,6 @@
 #include "EVSE.h"
-
+#include "StatusInterface.h"
+#include "Connector.h"
 
 EVSE::EVSE(){
     // Defining the PORTB0 = RelayControl |
@@ -25,14 +26,14 @@ int EVSE::run() {
 
         switch (state) {
             case EVSE::State::CHARGING:
-                evse.SetRelayOn();
+                SetRelayOn();
                 break;
 
             case EVSE::State::NOTCONNECTED:
             case EVSE::State::CONNECTED:
             case EVSE::State::ERROR:
             default:
-                evse.SetRelayOff();
+                SetRelayOff();
                 break;
         }
     }

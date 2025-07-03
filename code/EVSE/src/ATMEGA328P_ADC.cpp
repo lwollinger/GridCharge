@@ -36,7 +36,7 @@ With 16MHz on, we will use the prescaler, so that the sampled signal has precisi
 
 */
 
-ATMEGA328P_ADC::ATMEGA328P_ADC(float v, float s){
+ATMEGA328P_ADC::ATMEGA328P_ADC(float v, uint16_t s){
     voltage = v;
     scale = s;
     // ADC and config prescaler / 128 -> ADC clock = 125kHz

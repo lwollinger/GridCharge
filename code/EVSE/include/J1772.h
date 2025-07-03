@@ -14,7 +14,7 @@ private:
     J1772ProximityPilot _proximity_pilot;
     
 public:
-    J1772(_ADC_* adc);
+    J1772(_ADC_* adc, PWM * pwm, uint8_t curLimit);
     uint8_t getConnectorCurrentLimit(){
         return _maxCurrentConnector;
     }

@@ -6,7 +6,7 @@
 
 class ATMEGA328P_ADC : public _ADC_ {
 public:
-    ATMEGA328P_ADC(float voltage, float scale);
+    ATMEGA328P_ADC(float voltage, uint16_t scale);
     
     // Here I know that the ADC of ATMEL328P is 10 bits, but I have used only uint16_t which holds the entire content of the 10bit value.
     float read(uint8_t pin) override; // Auxiliar Function

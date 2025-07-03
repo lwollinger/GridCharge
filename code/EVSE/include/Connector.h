@@ -2,6 +2,7 @@
 #define CONNECTOR_H
 
 #include <avr/io.h>
+#include "EVSE.h"
 
 
 /*
