@@ -30,7 +30,7 @@ J1772ControlPilot::J1772ControlPilot(_ADC_ *adc, PWM *pwm, uint8_t curLimit) {
 }
 
 J1772ControlPilot::PilotState J1772ControlPilot::queryState(){
-    float voltage = _adc->read(MUX0);
+    float voltage = _adc->read(MUX0);   // Send the port to read the ADC value
 
     if(voltage > 4.3){
         _actualState = PilotState::A;

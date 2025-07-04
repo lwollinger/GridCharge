@@ -33,7 +33,6 @@ With 16MHz on, we will use the prescaler, so that the sampled signal has precisi
 
 16Mhz / 128 = 125kHz (ADC Clock)
 
-
 */
 
 ATMEGA328P_ADC::ATMEGA328P_ADC(float v, uint16_t s){
@@ -45,7 +44,8 @@ ATMEGA328P_ADC::ATMEGA328P_ADC(float v, uint16_t s){
 }
 
 float ATMEGA328P_ADC::read(uint8_t pin){
-    ADMUX = (1 << REFS0) | (1 << pin); // 0001 -> ADC1
+    // set the ADC channel (MUX0 control pilot & MUX2 proximity pilot)
+    ADMUX = (1 << REFS0) | (1 << pin);
 
     // Start conversion
     ADCSRA |= (1 << ADSC);
