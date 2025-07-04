@@ -29,8 +29,6 @@
 /*  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 /**************************************************************************/
 
-
-
 #include <avr/io.h>
 #include <util/delay.h>
 
