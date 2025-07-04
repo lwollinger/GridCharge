@@ -24,15 +24,13 @@ Schematic:
 ADC = (Vin/Vref)*2^n
 n -> bits ADC number (10bits)
 
+voltage = (ADC * 5.0) / 1024.0 ;
 
 ** Nyquist Rule **
 
 According to Nyquist, the sampling frequency > 2 * signal frequency.
-
 With 16MHz on, we will use the prescaler, so that the sampled signal has precision and reduces aliasing (distortion due to undersampling).
-
 16Mhz / 128 = 125kHz (ADC Clock)
-
 */
 
 ATMEGA328P_ADC::ATMEGA328P_ADC(float v, uint16_t s){
@@ -53,7 +51,8 @@ float ATMEGA328P_ADC::read(uint8_t pin){
     // Wait the conversion
     while (ADCSRA & (1 << ADSC));
 
-    // return the 10 bits ADC value
+    /* return the value of a number in the range of 0 to 1023, 
+    that was messured by the ADC and converted to a voltage value. */
     return (ADC * voltage) / scale;
 }
 
