@@ -11,7 +11,7 @@ Baixe a ferramenta **`avrdude-6.4-mingw32`** (ou versão mais recente) através 
 
 Extraia a pasta em um diretório acessível.
 
-Obs: Lembre-se onde foi baixado o seu **`avrdude`**
+💡 Dica: Lembre-se do caminho onde você extraiu o **`avrdude`**, pois ele será usado mais adiante.
 
 ---
 
@@ -34,8 +34,25 @@ upload_flags =
 
 upload_command = "C:\Users\lucas\Downloads\Sistema\avrdude-6.4-mingw32\avrdude.exe" $UPLOAD_FLAGS -U flash:w:$SOURCE:i
 ```
+## 3️⃣ Configurar os Fusíveis do ATmega328P
 
-## 3️⃣ Compilar e fazer o upload
+Para utilizar o cristal externo e rodar o microcontrolador a 16 MHz, é necessário configurar corretamente os fusíveis do ATmega328P.
+
+Crie um arquivo .bat com o conteúdo abaixo:
+
+```ini
+@echo off
+echo Regravando FUSES corretos para cristal de 16 MHz...
+
+"C:\Users\lucas\Downloads\Sistema\avrdude-6.4-mingw32\avrdude.exe" -p m328p -c usbasp ^
+    -U lfuse:w:0xFF:m ^
+    -U hfuse:w:0xDA:m ^
+    -U efuse:w:0xFD:m
+
+pause
+```
+
+## 4️⃣ Compilar e fazer o upload
 
 ```ini
 pio run --target upload
