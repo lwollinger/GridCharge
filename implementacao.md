@@ -42,6 +42,6 @@ A implementação do projeto foi realizada utilizando ferramentas de desenvolvim
 
 <div align="center">
 
-[⬅️ Retroceder](projeto.md) | [🏠 Início](analise.md)
+[⬅️ Retroceder](projeto.md) | [Avançar ➡️](testes.md)
 
 </div>
