@@ -1,8 +1,5 @@
 # 🚀 Implementação
 
-> **Nota**  
-> Relatar o processo de implementação do problema, incluindo as ferramentas e bibliotecas utilizadas.
-
 A implementação do projeto foi realizada utilizando ferramentas de desenvolvimento embarcado e de desenho eletrônico. O processo envolveu tanto a parte de software (firmware) quanto a de hardware (placa do carregador).
 
 ## 🛠️ Ferramentas Utilizadas
