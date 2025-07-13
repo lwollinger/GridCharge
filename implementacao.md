@@ -13,6 +13,11 @@ A implementação do projeto foi realizada utilizando ferramentas de desenvolvim
 - **Git/GitHub** – Controle de versão do projeto;
 - **VS Code + PlatformIO** – Alternativa usada em testes locais;
 - **Multímetro e Fonte AC** – Testes em bancada.
+- **USBasp** - Programador que permite gravar firmware e bootloaders em microcontroladores AVR;
+
+---
+## 📚 Bibliotecas Utilizadas
+- **avr/io.h** – Biblioteca AVR C (avr-libc) que fornece definições para acessar e controlar os pinos de entrada/saída (IO) e registradores de funções especiais (SFRs) dos microcontroladores Atmel AVR;
 
 ---
 
@@ -23,6 +28,17 @@ A implementação do projeto foi realizada utilizando ferramentas de desenvolvim
   <img src="img/layout_pci_3d.png" alt="Imagem da placa desenvolvida no Altium" width="600"/>
   <br>
   <em>Figura: Layout da PCB desenvolvida no Altium Designer</em>
+</div>
+
+---
+
+## 🧑‍🏭 Soldagem da PCI
+
+<div align="center">
+  <img src="img/manufatura.png" alt="" width="600"/>
+  <img src="img/soldagem.png" alt="" width="600"/>
+  <br>
+  <em>Figura: Desenvolvimento da Soldagem da PCI</em>
 </div>
 
 ---
