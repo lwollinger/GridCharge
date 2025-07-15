@@ -3,9 +3,9 @@
 /*
 Schematic:
     Control Pilot ------ ADC_controlPilot
-         +12V     ----->       4,54V
-           9V     ----->       4,08V
-           6V     ----->       3,63V
+         +12V     ----->       4,3V
+           9V     ----->       3,7V
+    (PWM)  6V     ----->       [3,6V - 2,7V] 
            3V     ----->       3,17V
            0V     ----->       2,71V
          -12V     ----->       0,89V
@@ -29,29 +29,48 @@ J1772ControlPilot::J1772ControlPilot(_ADC_ *adc, PWM *pwm, uint8_t curLimit) {
 
 }
 
-J1772ControlPilot::PilotState J1772ControlPilot::queryState(){
+
+J1772ControlPilot::PilotState J1772ControlPilot::queryState() {
+    const int N = 3;               // Size of the average
+    float buffer[N] = {0};         // Buffer
+    int index = 0;                 // Actual position buffer
+    int count = 0;                 // Samples
+    float sum = 0;
+
+    // ADC reading
     float voltage = _adc->read(MUX0);   // Send the port to read the ADC value
 
-    if(voltage > 4.3){
+    // Update circular buffer
+    buffer[index] = voltage;
+    index = (index + 1) % N;
+    if (count < N) count++;
+
+    // Calculate the average
+    for (int i = 0; i < count; i++) {
+        sum += buffer[i];
+    }
+    float filtered = sum / count;
+
+    // State machine
+    if (filtered > 4.2) {
         _actualState = PilotState::A;
         _pwm->setDutyCycle(100);
-    } else if(voltage > 3.8){
+    } else if (filtered > 3.6) {
         _actualState = PilotState::B;
         _pwm->setDutyCycle(100);
-    } else if(voltage > 3.4){
+    } else if (filtered > 2.5) {
         _actualState = PilotState::C;
         _pwm->setDutyCycle(_dutyON);
-    } else if(voltage > 2.9){
+    } else if (filtered > 1.9) {
         _actualState = PilotState::D;
         _pwm->setDutyCycle(_dutyON);
-    } else if(voltage > 1.5){
+    } else if (filtered > 1.1) {
         _actualState = PilotState::E;
         _pwm->setDutyCycle(100);
-    } else{
+    } else {
         _actualState = PilotState::F;
         _pwm->setDutyCycle(100);
     }
 
     return _actualState;
 }
-

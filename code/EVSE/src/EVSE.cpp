@@ -3,7 +3,7 @@
 #include "Connector.h"
 
 EVSE::EVSE() {
-    // Defining the PORTB0 = RelayControl |
+    // Defining the PORTB0 = RelayControl
     DDRB |= (1 << _relay);  // Set PB0 to Output
     PORTB &= (1 << _relay); // Start relay off
     this->_relayState = false;
@@ -24,8 +24,7 @@ int EVSE::run() {
         if (_connector->isConnected()) { // Check if the connector is connected
             EVSE::State state = _connector->getState();
             _statusIface->setStatus(state);
-            switch (state)
-            {
+            switch (state) {
             case EVSE::State::CHARGING:
                 SetRelayOn();
                 break;
@@ -37,6 +36,9 @@ int EVSE::run() {
                 SetRelayOff();
                 break;
             }
+        } else {
+            _statusIface->setStatus(EVSE::State::NOTCONNECTED);
+            SetRelayOff();
         }
     }
 

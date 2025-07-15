@@ -1,4 +1,6 @@
 #include "ATMEGA328P_ADC.h"
+#include <util/delay.h>
+
 /*
 Config ADC
 +--------------------------------------------------------+
@@ -38,7 +40,6 @@ ATMEGA328P_ADC::ATMEGA328P_ADC(float v, uint16_t s){
     scale = s;
     // ADC and config prescaler / 128 -> ADC clock = 125kHz
     ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
-
 }
 
 float ATMEGA328P_ADC::read(uint8_t pin){
@@ -51,8 +52,6 @@ float ATMEGA328P_ADC::read(uint8_t pin){
     // Wait the conversion
     while (ADCSRA & (1 << ADSC));
 
-    /* return the value of a number in the range of 0 to 1023, 
-    that was messured by the ADC and converted to a voltage value. */
+    // return the value of a number in the range of 0 to 1023, that was messured by the ADC and converted to a voltage value. 
     return (ADC * voltage) / scale;
 }
-

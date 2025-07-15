@@ -7,9 +7,9 @@
 
 class LedInterface : public StatusInterface {
 private:
-    const uint8_t _ledRedPin = PORTC0;
-    const uint8_t _ledGreenPin = PORTC2;
-    const uint8_t _ledBluePin = PORTC3;
+    const uint8_t _ledRedPin = PORTC2;
+    const uint8_t _ledGreenPin = PORTC3;
+    const uint8_t _ledBluePin = PORTC0;
 public:
     LedInterface();
     void setStatus(EVSE::State mode) override;

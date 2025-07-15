@@ -34,7 +34,7 @@ Here I'm using 50% duty = 30A, because my connector and my EVSE was made to supp
 */
 
 ATMEGA328FAST_PWM::ATMEGA328FAST_PWM(){
-    DDRB |= (1 << PORTB2); // PORTB2 -> output
+    DDRB |= (1 << DDB2); // PORTB2 -> output
     generatePWM();
 }
 
@@ -57,66 +57,4 @@ void ATMEGA328FAST_PWM::setDutyCycle(float percent) {
 void ATMEGA328FAST_PWM::stopPWM() { 
     setDutyCycle(0);
 }
-
-/*
-void ATMEGA328FAST_PWM::generatePWM(uint8_t port, uint16_t frequency, float dutyPercent){
-    // Config Timer1 for Fast PWM, mode 14
-    TCCR1A = (1 << COM1B1) | (1 << WGM11); // Clear OC1B on Compare Match
-    TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11); // Fast PWM, Prescaler = 8
-    ICR1 = 1999;   // TOP periode 1 kHz
-    OCR1B = _inicialDuty;   // Duty cycle 0%.
-}
-
-
-uint16_t ATMEGA328FAST_PWM::setPWM(){
-    uint16_t amps = getCurrentLimit();
-
-    // Calculate the limit of PWM by amps value
-    
-    if (amps < 6 || amps > 80){
-        OCR1B = 0; // out of range, set pwm off
-    }
-
-    float duty = 0;
-
-    if (amps <= 51){
-        duty = amps / 0.6f; // 6A to 51A
-    } else{
-        duty = ((amps - 64.0f) / 2.5f); // Above 51A
-    }
-
-    // Convert duty % for the number of the timer variable OCR1B -> (OCR1B / ICR1)
-    return OCR1B = (uint16_t)((duty / 100.0f) * ICR1);
-}
-
-
-
-void ATMEGA328FAST_PWM::setControlPilotPWM(J1772ControlPilot::PilotState state){
-
-    switch (state) {
-        case J1772ControlPilot::PilotState::A:
-            OCR1B = ICR1; // 100% duty
-            break;
-        case J1772ControlPilot::PilotState::B:
-            //OCR1B = ICR1; 
-            OCR1B = ICR1;
-            break;
-        case J1772ControlPilot::PilotState::C:
-            setPWM();
-            break;
-        case J1772ControlPilot::PilotState::D:
-            setPWM();
-            break;
-        case J1772ControlPilot::PilotState::E:
-            OCR1B = ICR1;
-            break;
-        case J1772ControlPilot::PilotState::F:
-            OCR1B = ICR1;
-            break;
-        default:
-            OCR1B = 0; // Desliga PWM em outros casos, ou escolha outro valor
-            break;
-    }
-}
-*/
 

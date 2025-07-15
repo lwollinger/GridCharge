@@ -19,6 +19,13 @@ O processo de testes após a realização do software embarcado foi baseado em d
 - Avaliação do comportamento dos componentes em tempo real.
 
 ---
+#### 2.1 Teste Estado A
+<div align="center">
+  <img src="img/estado_a_ociloscopio.png" alt="" width="600"/>
+  <img src="img/estado_a_bancada.png" alt="" width="600"/>
+  <br>
+  <em>Figura: Desenvolvimento da Soldagem da PCI</em>
+</div>
 
 <div align="center">
 
