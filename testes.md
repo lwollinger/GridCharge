@@ -1,8 +1,5 @@
 # Testes
 
-> **Nota**  
-> Relatar o processo de testes do sistema, especificando quais testes foram realizados e os resultados obtidos.
-
 O processo de testes após a realização do software embarcado foi baseado em duas etapas:
 
 ### 1. Testes Iniciais no Software Proteus

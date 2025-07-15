@@ -26,13 +26,13 @@ Essa flexibilidade é viabilizada por um dos principais paradigmas da programaç
 
 -  Deve garantir a segurança do carregamento, evitando acionamento de relés fora dos estados apropriados.
 
+---
+
 ## Diagrama de Casos de Uso
 
 ![Diagrama Caso de Uso](img/diagrama_caso_de_uso.png)
- 
-## Diagrama de Domínio do problema
 
-![Diagrama Classe](img/diagrama_classe.png)
+---
 
 ## Máquina de Estados
 
