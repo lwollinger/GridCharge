@@ -21,6 +21,7 @@ A implementação do projeto foi realizada utilizando ferramentas de desenvolvim
 ## 🖼️ Visual da Placa no Altium
 
 <div align="center">
+  <img src="img/schematic.png" alt="Imagem da placa desenvolvida no Altium" width="600"/>
   <img src="img/layout_pci.png" alt="Imagem da placa desenvolvida no Altium" width="600"/>
   <img src="img/layout_pci_3d.png" alt="Imagem da placa desenvolvida no Altium" width="600"/>
   <br>
