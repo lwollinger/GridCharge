@@ -24,9 +24,36 @@ O processo de testes após a realização do software embarcado foi baseado em d
   <img src="img/estado_a_ociloscopio.png" alt="" width="600"/>
   <img src="img/estado_a_bancada.png" alt="" width="600"/>
   <br>
-  <em>Figura: Desenvolvimento da Soldagem da PCI</em>
+  <em>Figura: Estado A</em>
 </div>
 
+--- 
+#### 2.2 Teste Estado B
+<div align="center">
+  <img src="img/estado_b_ociloscopio.png" alt="" width="600"/>
+  <img src="img/estado_b_bancada.png" alt="" width="600"/>
+  <br>
+  <em>Figura: Estado B</em>
+</div>
+
+--- 
+#### 2.3 Teste Estado C
+<div align="center">
+  <img src="img/estado_c_ociloscopio.png" alt="" width="600"/>
+  <img src="img/estado_c_bancada_.png" alt="" width="600"/>
+  <br>
+  <em>Figura: Estado C</em>
+</div>
+
+
+### 3. Resultado Final
+<div align="center">
+  <img src="img/estado_geral_bancada.png" alt="" width="600"/>
+  <br>
+  <em>Figura: Estado C com Acionando os Relés</em>
+</div>
+
+--- 
 <div align="center">
 
 [⬅️ Retroceder](implementacao.md) | [🏠 Início](README.md)
