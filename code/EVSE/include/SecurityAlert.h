@@ -10,7 +10,7 @@
     The 
 */
 
-#define GFCI PORTD2
+#define GFCI PD2
 #define Phase1 PORTD3
 #define Phase2 PORTD4
 
@@ -21,11 +21,8 @@ private:
     uint8_t _Phase2 = Phase2;
 
 public:
-
-    //SecurityAlert(uint8_t GPIO, const char* alert_name);
     SecurityAlert();
     bool IsFaultSecurity();
-
 };
 
-#endif // SECURITY_ALER
+#endif // SECURITY_ALERT_H

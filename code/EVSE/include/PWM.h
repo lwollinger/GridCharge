@@ -2,8 +2,6 @@
 #define PWM_H
 
 #include <avr/io.h>
-//#include "PilotState.h"
-//#include "J1772ControlPilot.h"
 
 class PWM {
 public:

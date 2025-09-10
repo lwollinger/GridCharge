@@ -26,10 +26,6 @@ public:
     void setFrequency(uint16_t frequency) override;
     void setDutyCycle(float percent) override;
     void stopPWM() override;
-
 };
-
-
-
 
 #endif // ATMEGA328_FAST_PWM

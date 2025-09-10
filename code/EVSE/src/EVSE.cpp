@@ -1,11 +1,11 @@
 #include "EVSE.h"
 #include "StatusInterface.h"
 #include "Connector.h"
+#include "SecurityAlert.h"
 
 EVSE::EVSE() {
-    // Defining the PORTB0 = RelayControl
-    DDRB |= (1 << _relay);  // Set PB0 to Output
-    PORTB &= (1 << _relay); // Start relay off
+    DDRB |= (1 << _relay);  
+    PORTB &= (1 << _relay); 
     this->_relayState = false;
 }
 
@@ -21,26 +21,30 @@ void EVSE::SetRelayOff() {
 
 int EVSE::run() {
     while (1) {
-        if (_connector->isConnected()) { // Check if the connector is connected
-            EVSE::State state = _connector->getState();
-            _statusIface->setStatus(state);
-            switch (state) {
+        if(_securityAlert->IsFaultSecurity()){
+            _state = EVSE::State::ERROR;
+            _statusIface->setStatus(_state);  
+            SetRelayOff();
+        }
+        else if (_connector->isConnected() && !_securityAlert->IsFaultSecurity()) {
+            _state = _connector->getState();
+            _statusIface->setStatus(_state);
+
+            switch (_state) {
             case EVSE::State::CHARGING:
                 SetRelayOn();
                 break;
-
             case EVSE::State::NOTCONNECTED:
             case EVSE::State::CONNECTED:
             case EVSE::State::ERROR:
             default:
                 SetRelayOff();
                 break;
-            }
+            } 
         } else {
             _statusIface->setStatus(EVSE::State::NOTCONNECTED);
             SetRelayOff();
         }
     }
-
     return 0;
 }

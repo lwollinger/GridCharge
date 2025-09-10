@@ -26,10 +26,10 @@ void LedInterface::setStatus(EVSE::State mode){
             PORTC &= ~(1 << _ledRedPin);
             break;
         case EVSE::State::ERROR:
-        default:
             // YELLOW: Error
-            PORTC = (1 << _ledRedPin) | (1 << _ledGreenPin);
-            PORTC &= ~(1 << _ledBluePin);
+            PORTC |=  (1 << _ledRedPin) | (1 << _ledGreenPin); 
+            PORTC &= ~(1 << _ledBluePin);                     
+
             break;
     }
 }
