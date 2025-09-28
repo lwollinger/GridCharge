@@ -32,7 +32,7 @@ upload_flags =
         -B4
         -cusbasp
 
-upload_command = "C:\Users\lucas\Downloads\Sistema\avrdude-6.4-mingw32\avrdude.exe" $UPLOAD_FLAGS -U flash:w:$SOURCE:i
+upload_command = "C:\Caminho\Para\avrdude-6.4-mingw32\avrdude.exe" $UPLOAD_FLAGS -U flash:w:$SOURCE:i
 ```
 ## 3️⃣ Configurar os Fusíveis do ATmega328P
 
@@ -44,7 +44,7 @@ Crie um arquivo .bat com o conteúdo abaixo:
 @echo off
 echo Regravando FUSES corretos para cristal de 16 MHz...
 
-"C:\Users\lucas\Downloads\Sistema\avrdude-6.4-mingw32\avrdude.exe" -p m328p -c usbasp ^
+"C:\Caminho\Para\avrdude-6.4-mingw32\avrdude.exe" -p m328p -c usbasp ^
     -U lfuse:w:0xFF:m ^
     -U hfuse:w:0xDA:m ^
     -U efuse:w:0xFD:m
