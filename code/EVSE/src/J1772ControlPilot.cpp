@@ -58,7 +58,7 @@ J1772ControlPilot::PilotState J1772ControlPilot::queryState() {
     } else if (filtered > 3.9) {
         _actualState = PilotState::B;
         _pwm->setDutyCycle(100);
-    } else if (filtered > 2) {        // analisar melhor este valor aqui!! Ta passando pros 2 estados
+    } else if (filtered > 2) {
         _actualState = PilotState::C;
         _pwm->setDutyCycle(_dutyON);
     } else if (filtered > 0.6) {
@@ -77,7 +77,7 @@ J1772ControlPilot::PilotState J1772ControlPilot::queryState() {
 */
 
 J1772ControlPilot::PilotState J1772ControlPilot::queryState() {
-    const int N = 125;             // Size of the average
+    const int N = 125;  // Size of a periode
     float maxVoltage = 0;
 
     for (int i = 0; i < N; i++) {
@@ -94,8 +94,7 @@ J1772ControlPilot::PilotState J1772ControlPilot::queryState() {
     } else if (maxVoltage > 3.9) {
         _actualState = PilotState::B;
         _pwm->setDutyCycle(100);
-    } else if (maxVoltage > 3.4) {        // analisar melhor este valor aqui!! Ta passando pros 2 estados
-        _actualState = PilotState::C;
+    } else if (maxVoltage > 3.4) { 
         _pwm->setDutyCycle(_dutyON);
     } else if (maxVoltage> 2.9) {
         _actualState = PilotState::D;
