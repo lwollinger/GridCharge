@@ -1,5 +1,5 @@
 <img src="img/ifsc-logo.png"
-     width="30%"
+     width="40%"
      style="padding: 10px">
 
 #  GridCharge 
