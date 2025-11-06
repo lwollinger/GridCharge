@@ -88,17 +88,18 @@ J1772ControlPilot::PilotState J1772ControlPilot::queryState() {
 
 
     // State machine
-    if (maxVoltage > 4.3) {
+    if (maxVoltage > 4.5) {
         _actualState = PilotState::A;
         _pwm->setDutyCycle(100);
-    } else if (maxVoltage > 3.9) {
+    } else if (maxVoltage > 3.8) {
         _actualState = PilotState::B;
         _pwm->setDutyCycle(100);
-    } else if (maxVoltage > 3.4) { 
+    } else if (maxVoltage > 3.1) {
+        _actualState = PilotState::C;
         _pwm->setDutyCycle(_dutyON);
-    } else if (maxVoltage> 2.9) {
-        _actualState = PilotState::D;
-        _pwm->setDutyCycle(_dutyON);
+    //} else if (maxVoltage > 2.7) {
+    //    _actualState = PilotState::D;
+    //    _pwm->setDutyCycle(_dutyON);
     } else if (maxVoltage > 2.4) {
         _actualState = PilotState::E;
         _pwm->setDutyCycle(100);
