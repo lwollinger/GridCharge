@@ -44,8 +44,9 @@ Funcionamento base do sistema de carregamento para o conector J1772.
 
 ![Diagrama Caso de Uso](img/maquina_estados.png)
 
+---
 <div align="center">
 
-[⬅️ Retroceder](README.md) | [Avançar ➡️](projeto.md)
+[⬅️ Retroceder](introducao.md) | [Avançar ➡️](projeto.md)
 
 </div>

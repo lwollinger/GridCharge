@@ -7,7 +7,7 @@ O diagrama de classes representa a estrutura modular do firmware do EVSE (Electr
 ![Diagrama Classe](img/diagrama_classe.png)
 
 
-
+---
 <div align="center">
 
 [⬅️ Retroceder](analise.md) | [Avançar ➡️](implementacao.md)

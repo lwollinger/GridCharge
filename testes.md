@@ -62,6 +62,6 @@ O processo de testes após a realização do software embarcado foi baseado em d
 --- 
 <div align="center">
 
-[⬅️ Retroceder](implementacao.md) | [🏠 Início](README.md)
+[⬅️ Retroceder](implementacao.md) | [Avançar ➡️](resultado.md)
 
 </div>
