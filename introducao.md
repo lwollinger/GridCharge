@@ -25,6 +25,7 @@ Tabela 1 — Estados da estação de recarga
 
 *Fonte: Adaptado de SAE J1772 (2017).*
 
+---
 <div align="center">
 
 [⬅️ Retroceder](README.md) | [Avançar ➡️](analise.md)
