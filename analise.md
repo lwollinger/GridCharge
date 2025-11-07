@@ -1,3 +1,7 @@
+# Metodologia
+
+O desenvolvimento do hardware foi conduzido com base nas especificações e descrições técnicas disponibilizadas pela documentação do OpenEVSE, servindo como referência para o projeto dos circuitos de controle e segurança elétrica. Já o software foi implementado em C++, utilizando a modelagem Unified Modeling Language (UML) para estruturar a arquitetura do sistema. Essa metodologia permitiu uma organização modular do código, garantindo a separação de responsabilidades entre os componentes, além de facilitar a manutenção, os testes e futuras expansões do sistema.
+
 # Análise orientada a objeto
 
 ## Descrição Geral do domínio do problema
