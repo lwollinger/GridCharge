@@ -3,9 +3,8 @@
 A placa desenvolvida, foi projetada para gerenciar o processo de recarga em corrente alternada (CA), incorporando todos os circuitos necessários para detecção de estados, controle do relé e geração do sinal PWM (Pulse Width Modulation) que é responsável por indicar ao veículo a corrente máxima disponível de carregamento.
 
 <div align="center">
-<em>Figura - Placa de Circuito Impresso EVSE AC Tipo 2<em>
-  <img src="img/placa_de_circuito_impresso _evse_ac_tipo_2.png" alt="" width="600"/>
-  <br>
+  <strong>Figura X - Placa de Circuito Impresso EVSE AC Tipo 2</strong><br>
+  <img src="img/placa_de_circuito_impresso _evse_ac_tipo_2.png" alt="Placa de circuito impresso EVSE AC Tipo 2" width="600"/><br>
   <em>Fonte: Autoria própria (2025).</em>
 </div>
 
