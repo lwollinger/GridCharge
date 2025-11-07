@@ -4,7 +4,7 @@ A placa desenvolvida, foi projetada para gerenciar o processo de recarga em corr
 
 <div align="center">
 <em>Figura - Placa de Circuito Impresso EVSE AC Tipo 2<em>
-  <img src="img/placa_de_circuito_impresso _evse_ac_tipo_2.png" alt="Exemplo ilustrativo dos carregadores CA e CC" width="600"/>
+  <img src="img/placa_de_circuito_impresso _evse_ac_tipo_2.png" alt="" width="600"/>
   <br>
   <em>Fonte: Autoria própria (2025).</em>
 </div>
