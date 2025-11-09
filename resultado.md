@@ -20,6 +20,9 @@ O projeto resultou em um protótipo funcional de um sistema de recarga de corren
 
 Este trabalho foi desenvolvido como desdobramento do projeto Embrapii “Soluções Facilitadoras para Mobilidade Elétrica”, vinculado ao Polo de Inovação do IFSC – Câmpus Florianópolis, na modalidade Basic Funding Alliance da Empresa Brasileira de Pesquisa e Inovação Industrial (Embrapii). O projeto conta com o apoio das empresas CPFL Energia, FuelTech, ARPAC, Skyvideo, Arrow Mobility e eiON Veículos Elétricos, que contribuíram para o avanço da mobilidade elétrica no país.
 
+Em especial, agradeço ao Dr. Prof. Joabel Moia, que, ao longo de dois anos, atuou como meu tutor no projeto, proporcionando oportunidades de crescimento, esclarecendo dúvidas e oferecendo constante incentivo.
+Agradeço também ao Me. Prof. Hugo Marcondes, pela orientação na estruturação do software embarcado e na aplicação de conceitos de programação orientada a objetos; e ao Dr. Prof. Renan Starke, pela disponibilidade e atenção em sanar todas as dúvidas necessárias para o desenvolvimento deste trabalho.
+
 
 #  REFERÊNCIAS
 UNITED STATES. Department of Transportation. Charger Types and Speeds. Disponível em: https://www.transportation.gov/rural/ev/toolkit/ev-basics/charging-speeds. Acesso em: 29 set. 2025.
